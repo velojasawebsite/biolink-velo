@@ -46,6 +46,7 @@
         font-family: "Inter", sans-serif;
         min-height: 100vh;
         padding-bottom: 4rem;
+        overflow-x: hidden; /* Cegah scroll ke samping */
         transition:
           background-color 0.3s,
           color 0.3s;
@@ -59,7 +60,7 @@
         color: var(--text-dark);
       }
 
-      /* === KOMPONEN === */
+      /* === KOMPONEN DASAR === */
       .glass {
         background: var(--card-bg-light);
         border: 1px solid var(--border-light);
@@ -71,9 +72,10 @@
       }
 
       .container {
+        width: 100%;
         max-width: 28rem;
         margin: 0 auto;
-        padding: 0 1rem;
+        padding: 0 1.25rem; /* Padding standar */
       }
 
       /* Header */
@@ -122,15 +124,12 @@
         display: inline-block;
         margin-bottom: 1rem;
       }
-
-      /* LOGO TANPA LINGKARAN */
       .profile-img {
         width: 7rem;
         height: 7rem;
         object-fit: contain;
-        border-radius: 1rem; /* Sedikit rounded biar modern */
+        border-radius: 1rem;
       }
-
       .profile-name {
         font-size: 1.5rem;
         font-weight: 700;
@@ -360,6 +359,41 @@
       html.dark .light-icon {
         display: none;
       }
+
+      /* ========================================= */
+      /* === RESPONSIVE UNTUK LAYAR KECIL (HP) === */
+      /* ========================================= */
+      @media (max-width: 400px) {
+        .container {
+          padding: 0 1rem; /* Padding agak dikurangi */
+        }
+        .profile-img {
+          width: 6rem;
+          height: 6rem; /* Foto profil mengecil sedikit */
+        }
+        .social-grid {
+          grid-template-columns: 1fr; /* Sosmed jadi 1 kolom ke bawah biar teks tidak terpotong */
+          gap: 0.5rem;
+        }
+        .link-card {
+          padding: 0.875rem;
+          gap: 0.75rem;
+        }
+        .icon-box {
+          width: 2.5rem;
+          height: 2.5rem; /* Ikon mengecil sedikit */
+        }
+        .icon-box.sm {
+          width: 2.25rem;
+          height: 2.25rem;
+        }
+        .link-title {
+          font-size: 0.8rem;
+        }
+        .profile-name {
+          font-size: 1.25rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -443,7 +477,6 @@
       <!-- Profile -->
       <div class="profile-section">
         <div class="profile-img-wrapper">
-          <!-- LOGO VELO -->
           <img
             src="https://velojasawebsite.online/assets/img/logo.png"
             alt="Velo Profile"
@@ -461,8 +494,8 @@
           </svg>
         </h1>
         <p class="bio">
-          Jasa pembuatan website custom & template, cepat, responsive, dan harga
-          bersahabat untuk UMKM & Personal Branding.
+          Jasa pembuatan website cepat, modern, dan harga bersahabat untuk UMKM
+          & Personal Branding.
         </p>
       </div>
 
